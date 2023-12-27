@@ -1,26 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <notes-manager />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NotesManager from './components/NotesManager.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    NotesManager,
+  },
+  methods: {
+    clearData() {
+      // Очистка данных в sessionStorage
+      sessionStorage.removeItem('notes');
+      location.reload();
+    },
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
